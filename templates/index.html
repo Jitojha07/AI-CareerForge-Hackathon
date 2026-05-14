@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Readiness Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Interview Readiness Analyzer</h1>
+    <p>Upload your resume and get an interview readiness score.</p>
+
+    <form action="/analyze" method="POST" enctype="multipart/form-data">
+
+        <label>Upload Resume (PDF/DOCX)</label>
+        <input type="file" name="resume" accept=".pdf,.docx" required>
+
+        <label>Technical Skills (comma separated)</label>
+        <textarea name="skills" required></textarea>
+
+        <label>Communication Rating (1-10)</label>
+        <input type="number" name="communication" min="1" max="10" required>
+
+        <label>GitHub URL</label>
+        <input type="url" name="github">
+
+        <label>LinkedIn URL</label>
+        <input type="url" name="linkedin">
+
+        <button type="submit">Analyze My Profile</button>
+    </form>
+</div>
+</body>
+</html>
