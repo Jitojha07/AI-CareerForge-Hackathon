@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Your Interview Readiness Score</h1>
+
+    <div class="score">{{ final_score }}/100</div>
+    <h2>{{ readiness }}</h2>
+
+    <div class="section">
+        <h3>Section Scores</h3>
+        <ul>
+            <li>Resume Score: {{ resume_score }}</li>
+            <li>Technical Skills Score: {{ technical_score }}</li>
+            <li>Communication Score: {{ communication_score }}</li>
+            <li>Portfolio Score: {{ portfolio_score }}</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>Improvement Suggestions</h3>
+        <ul>
+            {% for suggestion in suggestions %}
+                <li>{{ suggestion }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <a href="/" class="btn">Analyze Another Resume</a>
+</div>
+</body>
+</html>
